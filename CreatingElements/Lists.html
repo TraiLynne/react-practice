@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <style>
+        .my-fruits {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    
+</div>
+<script>
+    // Creating List items
+    var listContainer = React.createElement(
+        "div", {key : "el-key"}, "Some of my favorite fruits");
+ 
+    var listItem1 = React.createElement("li", {key : "O-key"}, "Orange");
+    var listItem2 = React.createElement("li", {key : "A-key"}, "Apple");
+    var listItem3 = React.createElement("li", {key : "B-key"}, "Banana");
+
+    var listElementList = [listContainer, listItem1, listItem2, listItem3];
+    
+    // Create Ordered List 
+    var orderedList = React.createElement(
+        "ol", 
+        {
+            className: "my-fruits",
+            key: "ordered-list"
+        }, 
+        listElementList
+    )
+    
+    // Create Unordered List 
+    var list = React.createElement(
+        "ul", 
+        {
+            className: "my-fruits",
+            key: "unordered-list"
+        }, 
+        listElementList
+    )
+
+    var elementList = [list, orderedList]
+
+    // Create Main App Container 
+    var app = React.createElement(
+        "div",
+        {id: "app"},
+        elementList
+    )
+    
+    // Define Root Element
+    var root = document.getElementById("root")
+
+    // Render 
+    ReactDOM.render(app, root);
+</script>
+</body>
+</html>
+
