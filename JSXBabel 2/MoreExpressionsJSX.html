@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 
-    <style>
-        .my-fruit {
-            color:red;
-            font-style: italic; 
-        }
-    </style>
-<body>
-<div id="root">
-    
-</div>
-<script type="text/babel">
-    const orange = "Orange";
-    const apple = "Apple";
-    const banana = "Banana";
-
-    function pick_fruit(index) {
-      if (index == 1) {
-        return orange;
-      }
-      if (index == 2) {
-        return apple;
-      }
-      if (index == 3) {
-        return banana;
-      }
-
-      return (<b>Invalid fruit!</b>)
+  <style>
+    .my-fruit {
+      color: red;
+      font-style: italic;
     }
+  </style>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const orange = "Orange";
+      const apple = "Apple";
+      const banana = "Banana";
 
-    const fruitImg = 'images/fruit.jpg'
+      function pick_fruit(index) {
+        if (index == 1) {
+          return orange;
+        }
+        if (index == 2) {
+          return apple;
+        }
+        if (index == 3) {
+          return banana;
+        }
 
-    // NOTE: Make sure you close the empty tags with no children
-    const image = <img src= {fruitImg} alt={"incomplete link: this is meant to return an error"}/>
+        return <b>Invalid fruit!</b>;
+      }
 
-    const fruitList = (
-      <div>
-          <div key="el" className="my-fruit">Some of my favorite fruits</div>
+      const fruitImg = "images/fruit.jpg";
+
+      // NOTE: Make sure you close the empty tags with no children
+      const image = (
+        <img
+          src={fruitImg}
+          alt={"incomplete link: this is meant to return an error"}
+        />
+      );
+
+      const fruitList = (
+        <div>
+          <div key="el" className="my-fruit">
+            Some of my favorite fruits
+          </div>
           <ul>
-              <li key="O-key">{pick_fruit(1)}</li>
-              <li key="A-key">{pick_fruit(2)}</li>
-              <li key="B-key">{pick_fruit(3)}</li>
-              <li key="N-key">{pick_fruit(4)}</li>
+            <li key="O-key">{pick_fruit(1)}</li>
+            <li key="A-key">{pick_fruit(2)}</li>
+            <li key="B-key">{pick_fruit(3)}</li>
+            <li key="N-key">{pick_fruit(4)}</li>
           </ul>
           {image}
-      </div>
-    );
-    
-    var root = document.getElementById("root")
-    ReactDOM.render(fruitList, root);
+        </div>
+      );
 
-</script>
-</body>
+      var root = document.getElementById("root");
+      ReactDOM.render(fruitList, root);
+    </script>
+  </body>
 </html>
