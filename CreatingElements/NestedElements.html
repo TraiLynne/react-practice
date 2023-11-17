@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <style>
+        #para-id {
+            color: green;
+        }
+
+        h2 {
+            color:red;
+            font-style: italic; 
+        }
+    </style>
+
+<body>
+<div id="root">
+	
+</div>
+<script>
+	// Comment out key attributes
+	// and show the error in chrome, then add the key in to fix
+
+	var headerContainer = React.createElement(
+		"div", 
+		{
+			id : "header-container", 
+			key: "uniq-react-key-1"
+		},
+		React.createElement(
+			"h2", 
+			{
+				id: "header"
+			}, 
+			"Welcome to the world of React!"
+		)
+	);
+
+	var paragraph = React.createElement(
+		"p", 
+		{
+			id : "para", 
+			key: "uniq-react-key-2"
+		}, 
+		"React seems rather tedious to work with.");
+
+	var elementList = [
+		headerContainer, 
+		paragraph
+	];
+
+	var app = React.createElement(
+		"div", 
+		{
+			id: "app"
+		}, 
+		elementList
+	);
+
+	let root = document.getElementById("root")
+
+	ReactDOM.render(app, root);
+
+</script>
+</body>
+</html>
