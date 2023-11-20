@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <style>
+        .my-time {
+            color:red;
+            font-style: italic; 
+        }
+    </style>
+<body>
+<div id="root">
+    
+</div>
+<script type="text/babel">
+    const orange = "Orange";
+    const apple = "Apple";
+    const banana = "Banana";
+
+    const fruitImg = 'images/fruit.jpg'
+
+    function on_tick() {
+
+        const image = (
+            <div className="my-time">
+                Current time: {new Date().toLocaleTimeString()}
+                <div/>
+                <img src= {fruitImg} />
+            </div>
+        );
+
+
+        const fruitList = (
+            <div>
+                <div key="el-key" >Some of my favorite fruits</div>
+                <ul>
+                    <li key="O-key">{orange}</li>
+                    <li key="A-key">{apple}</li>
+                    <li key="B-key">{banana}</li>
+                </ul>
+                {image}
+            </div>
+        );
+
+        const root = document.getElementById('root')
+        ReactDOM.render(fruitList, root);
+    }
+
+    setInterval(on_tick, 1000);
+</script>
+</body>
+</html>

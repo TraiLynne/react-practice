@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <style>
+        .my-fruit {
+            color: red;
+            font-style: italic; 
+        }
+    </style>
+<body>
+<div id="root">
+    
+</div>
+<script type="text/babel">
+    const orange = "Orange";
+    const apple = "Apple";
+    const banana = "Banana";
+
+    const fruitImg = 'images/fruit.jpg'
+    const image = <img src= {fruitImg}/>
+
+    function on_tick() {
+
+      var randomFruits = [
+        'Jackfruit', 
+        'Mango', 
+        'Strawberry', 
+        'Grapes', 
+        'Peach'
+    ]
+        
+      var randomFruit = randomFruits[Math.floor(Math.random() * randomFruits.length)];
+        
+  
+      const fruitList = (
+        <div>
+            <div key="el" >Some of my favorite fruits</div>
+            <ul>
+                <li key="O-key">{orange}</li>
+                <li key="A-key">{apple}</li>
+                <li key="B-key">{banana}</li>
+                <li key="N-key" className="my-fruit" >{randomFruit}</li>
+            </ul>
+            {image}
+        </div>
+      );
+    
+      const root = document.getElementById('root')
+      ReactDOM.render(fruitList, root);
+    }
+
+    setInterval(on_tick, 2000);
+</script>
+</body>
+</html>
