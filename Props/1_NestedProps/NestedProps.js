@@ -14,7 +14,7 @@ class Company extends React.Component {
     get_name() {
         return {'firstname': 'Alice', 'lastname': 'Chang'}
     }
-   
+
     render() {
 
         return (
